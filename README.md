@@ -28,9 +28,6 @@ pip install -r requirements.txt
   - `api_key`: API密钥
   - `model`: 使用的模型名称
   - `chatbot_role`: 聊天机器人的角色定义
-- `METRICS_CONFIG`: 评估指标配置
-  - `hallucination_threshold`: 幻觉检测阈值
-  - `answer_relevancy_threshold`: 答案相关性阈值
 
 ## 运行测试
 
@@ -74,9 +71,4 @@ python test_chat.py
 ## 测试内容
 
 当前测试用例包括：
-- 天气查询测试：测试系统对天气相关问题的回答准确性
-
-## 评估指标
-
-- HallucinationMetric：检测回答中是否存在幻觉（阈值：0.3）
-- AnswerRelevancyMetric：评估回答的相关性（阈值：0.5） 
+- 所配置的token对应的inty用户的最近20轮对话内容评估

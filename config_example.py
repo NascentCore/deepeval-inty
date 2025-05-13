@@ -11,9 +11,3 @@ EVAL_MODEL_CONFIG = {
     "model": "",
     "chatbot_role": "你是一个智能助手，能够理解用户需求并提供准确、相关的回答"
 }
-
-# 评估指标配置
-METRICS_CONFIG = {
-    "hallucination_threshold": 0.3,
-    "answer_relevancy_threshold": 0.5
-} 
