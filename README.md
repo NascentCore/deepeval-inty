@@ -72,3 +72,7 @@ python test_chat.py
 
 当前测试用例包括：
 - 所配置的token对应的inty用户的最近20轮对话内容评估
+
+## 实测结果
+![image](https://github.com/user-attachments/assets/71b00d2f-e11e-4777-8fcb-d927c4d22c52)
+
