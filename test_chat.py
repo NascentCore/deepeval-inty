@@ -7,7 +7,7 @@ from deepeval.metrics import (
     KnowledgeRetentionMetric
 )
 from deepeval.models.base_model import DeepEvalBaseLLM
-from config import CHAT_CONFIG, EVAL_MODEL_CONFIG, METRICS_CONFIG
+from config import CHAT_CONFIG, EVAL_MODEL_CONFIG
 from chat_client import ChatClient
 import requests
 import json
