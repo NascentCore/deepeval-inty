@@ -54,25 +54,33 @@ class ChatClient:
         return list(reversed(valid_messages))
     
     def chat(self, message: str) -> str:
+        """发送聊天消息并获取回复
+        
+        返回格式：
+        成功时返回助手回复的文本内容
+        失败时返回空字符串
+        
+        API响应格式：
+        {
+          "code": 200,
+          "message": "success",
+          "data": "助手的回复内容"
+        }
+        """
         response = requests.post(
             f"{self.base_url}/api/v1/chat",
             headers=self.headers,
-            json={"message": message, "stream": True},
-            verify=False,
-            stream=True
+            json={"message": message, "stream": False},
+            verify=False
         )
         
-        full_response = ""
-        for line in response.iter_lines():
-            if line:
-                line = line.decode('utf-8')
-                if line.startswith('data: '):
-                    try:
-                        data = json.loads(line[6:])
-                        if 'content' in data:
-                            full_response += data['content']
-                    except json.JSONDecodeError:
-                        continue
+        if response.status_code == 200:
+            try:
+                result = response.json()
+                if result.get("code") == 200 and "data" in result:
+                    return result["data"]
+            except json.JSONDecodeError:
+                print("解析响应JSON时出错")
         
-        return full_response
+        return ""
     
